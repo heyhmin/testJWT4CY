@@ -6,13 +6,13 @@ import Register from "./components/Register";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/"  element={<Login />}></Route>
         <Route path="/register"  element={<Register />}></Route>
         <Route path="/dashboard"  element={<Navbar />, <Dashboard />}></Route>
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
 
