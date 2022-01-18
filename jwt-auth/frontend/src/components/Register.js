@@ -8,18 +8,18 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confPassword, setConfPassword] = useState('');
     const [msg, setMsg] = useState('');
-    const history = useNavigate();
+    let navigate = useNavigate();
 
     const Register = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/users', {
+            await axios.post('http://localhost:30020/users', {
                 name: name,
                 email: email,
                 password: password,
                 confPassword: confPassword
             });
-            history.push("/");
+            navigate("/");
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);

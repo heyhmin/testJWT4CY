@@ -6,16 +6,16 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [msg, setMsg] = useState('');
-    const history = useNavigate();
+    let navigate = useNavigate();
 
     const Auth = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:5000/login', {
+            await axios.post('http://localhost:30020/login', {
                 email: email,
                 password: password
             });
-            history.push("/dashboard");
+            navigate("/dashboard");
         } catch (error) {
             if (error.response) {
                 setMsg(error.response.data.msg);
